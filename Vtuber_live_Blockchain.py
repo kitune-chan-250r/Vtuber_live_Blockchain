@@ -60,5 +60,3 @@ class Vtuber_live_Blockchain:
 	def last_block(self):
 		#最後のブロックをリターンする
 		return self.chain[-1]
-
-

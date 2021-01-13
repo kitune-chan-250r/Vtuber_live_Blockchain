@@ -17,9 +17,10 @@ class Vtuber_live_Blockchain:
 			'index': len(self.chain) + 1,
 			'timestamp' : time(),
 			'transactions': self.current_transactions,
-			'previous_hash': previous_hash or self._hash(self.cain[-1])
+			'previous_hash': previous_hash or self._hash(self.chain[-1])
 		}
 
+		self.current_transactions = []
 		self.chain.append(block)
 		return block
 
@@ -41,8 +42,8 @@ class Vtuber_live_Blockchain:
 		self.current_transactions.append({
 			'liver': liver,
 			'title': title,
-			'startdatetime': datetime,
-			'stream_url' : url,
+			'startdatetime': startdatetime,
+			'stream_url' : stream_url,
 			'onair': onair,
 			'audience': audience
 		})
@@ -59,4 +60,5 @@ class Vtuber_live_Blockchain:
 	def last_block(self):
 		#最後のブロックをリターンする
 		return self.chain[-1]
+
 

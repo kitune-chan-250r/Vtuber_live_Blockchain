@@ -60,3 +60,8 @@ class Vtuber_live_Blockchain:
 	def last_block(self):
 		#最後のブロックをリターンする
 		return self.chain[-1]
+
+"""
+transac = [{'a': 's'}, {'a': 'b'}]
+tran_jdump = json.dumps(transac)
+print(json.loads(tran_jdump))"""

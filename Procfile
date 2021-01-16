@@ -1,0 +1,1 @@
+web: gunicorn Vtuber_live_Blockchain.wsgi

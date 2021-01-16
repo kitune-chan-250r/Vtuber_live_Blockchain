@@ -5,11 +5,12 @@ from time import time
 class Vtuber_live_Blockchain:
 	#Vtuberの生放送データをブロックチェーンで保持
 	def __init__(self):
-		self.chain = []
-		self.current_transactions = []
-
+		#self.chain = []
+		self.chain = Chain.objects.all()
+		#self.current_transactions = []
+		self.current_transactions = Transaction.objects.all()
 		#ジェネシスブロック(一番最初のブロック)を生成
-		self.new_block(previous_hash=1)
+		#self.new_block(previous_hash=1)
 
 	def new_block(self, previous_hash=None):
 		#チェーンに新しいブロックを加える
@@ -60,3 +61,13 @@ class Vtuber_live_Blockchain:
 	def last_block(self):
 		#最後のブロックをリターンする
 		return self.chain[-1]
+
+"""
+transac = [{'a': 's'}, {'a': 'b'}]
+tran_jdump = json.dumps(transac)
+print(json.loads(tran_jdump))"""
+
+def _hash(block):
+	#ブロックをハッシュ化
+	block_string = json.dumps(block, sort_keys=True).encode()
+	return hashlib.sha256(block_string).hexdigest()

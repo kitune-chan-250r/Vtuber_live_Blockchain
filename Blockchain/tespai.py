@@ -14,10 +14,12 @@ data = {
 		'audience': 122222
 		}
 
-#res = req.post(url, data)
+#res = req.post(url, data).json()
 res = req.get(url).json()
 #res[0]['liver'] = json.load(res[0]['liver'])
 #onedata = res[0]['liver']
 #d = eval(onedata)
-print(res)
+for r in res:
+	print(r['transactions'])
+
 

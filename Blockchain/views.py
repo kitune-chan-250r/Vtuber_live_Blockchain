@@ -39,7 +39,7 @@ class Blockchain_Core:
 						   'audience':t.audience}
 			transactions.append(transaction)
 
-		chain_objects = Chain(index=index, transactions=str(transactions), previous_hash=p_hash)
+		chain_objects = Chain(index=index, transactions=transactions, previous_hash=p_hash)
 		chain_objects.save()
 
 		Transaction.objects.all().delete()		

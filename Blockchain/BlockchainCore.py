@@ -1,12 +1,6 @@
 import hashlib
 import json
 from time import time
-from .models import Transaction, Chain
-import django
-sys.path.append("Vtuber_live_Blockchain")
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Vtuber_live_Blockchain.settings')
-django.setup()
-from .models import Transaction, Chain
 
 class Vtuber_live_Blockchain:
 	#Vtuberの生放送データをブロックチェーンで保持
@@ -72,3 +66,8 @@ class Vtuber_live_Blockchain:
 transac = [{'a': 's'}, {'a': 'b'}]
 tran_jdump = json.dumps(transac)
 print(json.loads(tran_jdump))"""
+
+def _hash(block):
+	#ブロックをハッシュ化
+	block_string = json.dumps(block, sort_keys=True).encode()
+	return hashlib.sha256(block_string).hexdigest()

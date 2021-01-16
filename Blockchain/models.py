@@ -14,4 +14,4 @@ class Chain(models.Model):
 	index = models.IntegerField()
 	timestamp = models.DateTimeField(auto_now_add=True)
 	transactions = models.TextField()
-	previous_hash = models.TextField()
+	previous_hash = models.IntegerField()

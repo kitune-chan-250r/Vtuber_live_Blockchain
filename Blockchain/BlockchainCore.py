@@ -1,15 +1,22 @@
 import hashlib
 import json
 from time import time
+from .models import Transaction, Chain
+import django
+sys.path.append("Vtuber_live_Blockchain")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Vtuber_live_Blockchain.settings')
+django.setup()
+from .models import Transaction, Chain
 
 class Vtuber_live_Blockchain:
 	#Vtuberの生放送データをブロックチェーンで保持
 	def __init__(self):
-		self.chain = []
-		self.current_transactions = []
-
+		#self.chain = []
+		self.chain = Chain.objects.all()
+		#self.current_transactions = []
+		self.current_transactions = Transaction.objects.all()
 		#ジェネシスブロック(一番最初のブロック)を生成
-		self.new_block(previous_hash=1)
+		#self.new_block(previous_hash=1)
 
 	def new_block(self, previous_hash=None):
 		#チェーンに新しいブロックを加える

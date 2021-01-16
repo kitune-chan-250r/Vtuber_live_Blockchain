@@ -9,4 +9,4 @@ class TransactionSerializer(serializers.ModelSerializer):
 class ChainSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Chain
-		fields = ('index', 'transactions', 'previous_hash')
+		fields = ('index', 'timestamp', 'transactions', 'previous_hash')
